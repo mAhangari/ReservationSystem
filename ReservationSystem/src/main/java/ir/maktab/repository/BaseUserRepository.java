@@ -1,7 +1,7 @@
 package ir.maktab.repository;
 
 import ir.baseCRUD.base.repository.BaseEntityRepository;
-import ir.maktab.domain.User;
+import ir.maktab.model.User;
 
 public interface BaseUserRepository<E extends User, UT, PT> extends BaseEntityRepository<E, Long> {
 

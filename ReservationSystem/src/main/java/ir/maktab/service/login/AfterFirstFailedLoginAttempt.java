@@ -1,6 +1,6 @@
 package ir.maktab.service.login;
 
-import ir.maktab.domain.User;
+import ir.maktab.model.User;
 import ir.maktab.util.LoginServiceContext;
 
 public class AfterFirstFailedLoginAttempt extends LoginServiceState {

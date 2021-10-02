@@ -1,4 +1,4 @@
-package ir.maktab.domain;
+package ir.maktab.model;
 
 import ir.baseCRUD.base.domain.BaseEntity;
 import ir.baseCRUD.base.service.IUser;

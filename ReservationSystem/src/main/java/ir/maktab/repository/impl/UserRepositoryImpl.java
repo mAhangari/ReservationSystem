@@ -1,6 +1,6 @@
 package ir.maktab.repository.impl;
 
-import ir.maktab.domain.User;
+import ir.maktab.model.User;
 import ir.maktab.repository.UserRepository;
 import javax.persistence.EntityManagerFactory;
 

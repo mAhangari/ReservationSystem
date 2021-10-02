@@ -1,7 +1,7 @@
 package ir.maktab.service;
 
 import ir.baseCRUD.base.service.BaseEntityService;
-import ir.maktab.domain.User;
+import ir.maktab.model.User;
 
 public interface BaseUserService<E extends User, UT, PT> extends BaseEntityService<E, Long> {
 

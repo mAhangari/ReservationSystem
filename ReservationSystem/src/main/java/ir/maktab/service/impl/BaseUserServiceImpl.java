@@ -1,7 +1,7 @@
 package ir.maktab.service.impl;
 
 import ir.baseCRUD.base.service.impl.BaseEntityServiceImpl;
-import ir.maktab.domain.User;
+import ir.maktab.model.User;
 import ir.maktab.repository.BaseUserRepository;
 import ir.maktab.service.BaseUserService;
 import javax.persistence.EntityManager;
