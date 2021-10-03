@@ -18,12 +18,18 @@ public class UserFilter implements Filter {
         String password = request.getParameter("password");
         try {
             User account = ApplicationContext.loginServ.login(username, password);
-            request.setAttribute("account", account);
-            filterChain.doFilter(request, response);
+            if (account.isLoggedIn()) {
+                request.setAttribute("account", account);
+                filterChain.doFilter(request, response);
+            } else dispatchFailedLogin(request, response);
         } catch (AccountNotFoundException a) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/src/main/views/login_failed.jsp");
-            requestDispatcher.include(request, response);
+            dispatchFailedLogin(request, response);
         }
+    }
+
+    private void dispatchFailedLogin(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/src/main/views/login_failed.jsp");
+        requestDispatcher.include(request, response);
     }
 
     @Override
