@@ -13,7 +13,7 @@
     </head>
     <body>
         <%
-            Customer account = (Customer) request.getAttribute("account");
+            Customer account = (Customer) session.getAttribute("account");
             out.println("Welcome " + account.getFirstName() + " " + account.getLastName());
             out.println("Select an option: ");
         %>
