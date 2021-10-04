@@ -1,0 +1,13 @@
+package ir.maktab.service;
+
+import ir.baseCRUD.base.service.BaseEntityService;
+import ir.maktab.model.User;
+
+public interface BaseUserService<E extends User, UT, PT> extends BaseEntityService<E, Long> {
+
+    E findUserByUsername(UT username);
+
+    Boolean existsByUsernameAndPassword(UT username, PT password);
+
+    Boolean existsByUsername(UT username);
+}
