@@ -79,8 +79,6 @@
 
 <h2>Login Form</h2>
 
-<%--<%@include file="src/main/views/welcome.jsp" %>--%>
-
 <form action=page method="post">
     <div class="imgcontainer">
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
