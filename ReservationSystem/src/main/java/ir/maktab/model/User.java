@@ -82,7 +82,7 @@ public class User extends BaseEntity<Long> implements IUser {
 
     @Override
     public void setRevoked(boolean value) {
-        setActive(value);
+        setActive(!value);
     }
 
     @Override

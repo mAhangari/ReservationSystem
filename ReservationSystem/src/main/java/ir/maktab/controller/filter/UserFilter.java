@@ -1,6 +1,7 @@
 package ir.maktab.controller.filter;
 
 import ir.maktab.model.User;
+import ir.maktab.service.ExceptionHandling.AccountLoginLimitReachedException;
 import ir.maktab.service.ExceptionHandling.AccountNotFoundException;
 import ir.maktab.util.ApplicationContext;
 import javax.servlet.*;
@@ -22,7 +23,7 @@ public class UserFilter implements Filter {
                 request.setAttribute("account", account);
                 filterChain.doFilter(request, response);
             } else dispatchFailedLogin(request, response);
-        } catch (AccountNotFoundException a) {
+        } catch (AccountNotFoundException | AccountLoginLimitReachedException foundException) {
             dispatchFailedLogin(request, response);
         }
     }
