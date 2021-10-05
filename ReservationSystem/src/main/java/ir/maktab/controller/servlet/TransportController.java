@@ -23,7 +23,8 @@ public class TransportController extends HttpServlet {
 
         Employee employee = (Employee) session.getAttribute("account");
         if (employee.getWorkPlace().equals(WorkPlace.AIRLINE)) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/src/main/views/create_travel_schedule.jsp");
+            RequestDispatcher requestDispatcher =
+                    request.getRequestDispatcher("/src/main/views/profile/employee/create_travel_schedule.jsp");
             requestDispatcher.forward(request, response);
         }
     }

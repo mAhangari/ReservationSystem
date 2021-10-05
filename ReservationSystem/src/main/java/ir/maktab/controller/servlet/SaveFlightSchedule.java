@@ -33,7 +33,8 @@ public class SaveFlightSchedule extends HttpServlet {
         flightSchedule.setAirline(employee.getAirline());
         ApplicationContext.flightScheduleServ.save(flightSchedule);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/src/main/views/simple_employee_profile.jsp");
+        RequestDispatcher requestDispatcher =
+                request.getRequestDispatcher("/src/main/views/profile/employee/simple_employee_profile.jsp");
         requestDispatcher.forward(request, response);
 
     }
