@@ -19,7 +19,7 @@
                         <label for="sourceID">Source Place</label>
                     </td>
                     <td>
-                        <input id="sourceID" type="text" name="source"/>
+                        <input id="sourceID" type="text" name="source" required />
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +27,28 @@
                         <label for="destinationID">Destination Place</label>
                     </td>
                     <td>
-                        <input id="destinationID" type="text" name="destination" />
+                        <input id="destinationID" type="text" name="destination" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sortAirlineID">Air Line Name</label>
+                    </td>
+                    <td>
+                        <select name="airlineName" id="sortAirlineID">
+                            <option value="0">All Airline</option>
+                            <option value="1">Iran Air</option>
+                            <option value="2">Aseman</option>
+                            <option value="3">Homa</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sortPriceID">Max Price</label>
+                    </td>
+                    <td>
+                        <input id="sortPriceID" type="number" min="50" step="5" name="priceValue">
                     </td>
                 </tr>
                 <tr>
