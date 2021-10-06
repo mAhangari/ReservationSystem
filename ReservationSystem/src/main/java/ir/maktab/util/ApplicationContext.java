@@ -1,21 +1,9 @@
 package ir.maktab.util;
 
-import ir.maktab.repository.CustomerRepository;
-import ir.maktab.repository.EmployeeRepository;
-import ir.maktab.repository.FlightScheduleRepository;
-import ir.maktab.repository.UserRepository;
-import ir.maktab.repository.impl.CustomerRepositoryImpl;
-import ir.maktab.repository.impl.EmployeeRepositoryImpl;
-import ir.maktab.repository.impl.FlightScheduleRepositoryImpl;
-import ir.maktab.repository.impl.UserRepositoryImpl;
-import ir.maktab.service.CustomerService;
-import ir.maktab.service.EmployeeService;
-import ir.maktab.service.FlightScheduleService;
-import ir.maktab.service.UserService;
-import ir.maktab.service.impl.CustomerServiceImpl;
-import ir.maktab.service.impl.EmployeeServiceImpl;
-import ir.maktab.service.impl.FlightScheduleServiceImpl;
-import ir.maktab.service.impl.UserServiceImpl;
+import ir.maktab.repository.*;
+import ir.maktab.repository.impl.*;
+import ir.maktab.service.*;
+import ir.maktab.service.impl.*;
 import ir.maktab.service.login.LoginService;
 
 public class ApplicationContext {
@@ -32,6 +20,9 @@ public class ApplicationContext {
 
     private static final FlightScheduleRepository flightScheduleRepo;
     public static final FlightScheduleService flightScheduleServ;
+
+    private static final AirlineRepository airlineRepo;
+    public static final AirlineService airlineServ;
 
     public static final LoginService loginServ;
 
@@ -52,6 +43,9 @@ public class ApplicationContext {
 
         flightScheduleRepo = new FlightScheduleRepositoryImpl(HibernateUtil.getEntityMangerFactory());
         flightScheduleServ = new FlightScheduleServiceImpl(flightScheduleRepo);
+
+        airlineRepo = new AirlineRepositoryImpl(HibernateUtil.getEntityMangerFactory());
+        airlineServ = new AirlineServiceImpl(airlineRepo);
 
         loginServ = new LoginService(userServ);
 

@@ -26,17 +26,29 @@
     </head>
     <body>
             <script>
+                let flightSchedules = <%=session.getAttribute("flightSchedules")%>;
                 window.onload = function() {
-                    tableFromJson();
+                    tableFromJson(flightSchedules);
                 }
             </script>
+            <table>
+                <tr>
+                    <td>
+                        <p><button onclick="sortTableByAirline(flightSchedules)">Sort By Airline</button></p>
+                    </td>
+                    <td>
+                        <p><button onclick="sortTableByPrice(flightSchedules)">Sort By Price</button></p>
+                    </td>
+                </tr>
+            </table>
+
             <p id='showData'></p>
 
     </body>
     <script>
+        let ascending = false;
 
-        function tableFromJson() {
-            let flightSchedules = <%=request.getAttribute("flightSchedules")%>;
+        function tableFromJson(flightSchedules) {
 
             let col = [];
             for (let i = 0; i < flightSchedules.length; i++) {
@@ -77,6 +89,36 @@
             divShowData.innerHTML = "";
             divShowData.appendChild(table);
 
+        }
+
+        function sortTableByAirline(flightSchedules) {
+            if (ascending === false) {
+                flightSchedules.sort(function (a, b) {
+                    return a.airline.localeCompare(b.airline);
+                });
+                ascending = true;
+            } else if (ascending === true) {
+                flightSchedules.sort(function(a, b) {
+                    return b.airline.localeCompare(a.airline);
+                });
+                ascending = false;
+            }
+            tableFromJson(flightSchedules);
+        }
+
+        function sortTableByPrice(flightSchedules) {
+            if (ascending === false) {
+                flightSchedules.sort(function (a, b) {
+                    return a.price.localeCompare(b.price);
+                });
+                ascending = true;
+            } else if (ascending === true) {
+                flightSchedules.sort(function(a, b) {
+                    return b.price.localeCompare(a.price);
+                });
+                ascending = false;
+            }
+            tableFromJson(flightSchedules);
         }
     </script>
 </html>
