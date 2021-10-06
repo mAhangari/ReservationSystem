@@ -1,6 +1,7 @@
 package ir.maktab.service.impl;
 
 import ir.baseCRUD.base.service.impl.BaseEntityServiceImpl;
+import ir.maktab.model.Airline;
 import ir.maktab.model.FlightSchedule;
 import ir.maktab.repository.FlightScheduleRepository;
 import ir.maktab.service.FlightScheduleService;
@@ -16,10 +17,11 @@ public class FlightScheduleServiceImpl extends BaseEntityServiceImpl<FlightSched
     }
 
     @Override
-    public List<FlightSchedule> findAllBySourceAndDestination(String source, String destination) {
+    public List<FlightSchedule> findAllBySourceAndDestination(String source, String destination,
+                                                              Long maxPrice, Airline airlineId) {
         EntityManager em = repository.getEntityManager();
         try {
-            return repository.findAllBySourceAndDestination(source, destination);
+            return repository.findAllBySourceAndDestination(source, destination, maxPrice, airlineId);
         } catch (NoResultException e) {
             return null;
         } finally {
