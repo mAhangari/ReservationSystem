@@ -75,37 +75,41 @@
         }
     </style>
 </head>
-<body>
+    <body>
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null)
+                out.println(message);
+        %>
+        <h2>Login Form</h2>
 
-<h2>Login Form</h2>
+        <form action=page method="post">
+            <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
 
-<form action=page method="post">
-    <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <br>
+                <input id="uname" type="text" placeholder="Enter Username" name="username" required>
+                <br>
+                <label for="psw"><b>Password</b></label>
+                <br>
+                <input id="psw" type="password" placeholder="Enter Password" name="password" required>
 
-    <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <br>
-        <input id="uname" type="text" placeholder="Enter Username" name="username" required>
-        <br>
-        <label for="psw"><b>Password</b></label>
-        <br>
-        <input id="psw" type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me</label>
+            </div>
 
-        <button type="submit">Login</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me</label>
-    </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">
+                Forgot <a href=PasswordRecovery>password?</a>
+                or <a href=sign_up_page>Sign Up</a>
+            </span>
+            </div>
+        </form>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">
-        Forgot <a href=PasswordRecovery>password?</a>
-        or <a href=NewAccount>Sign Up</a>
-    </span>
-    </div>
-</form>
-
-</body>
+    </body>
 </html>
