@@ -17,16 +17,16 @@ public class ApplicationContext {
     private static final EmployeeRepository employeeRepo;
     public static final EmployeeService employeeServ;
 
-
     private static final FlightScheduleRepository flightScheduleRepo;
     public static final FlightScheduleService flightScheduleServ;
 
     private static final AirlineRepository airlineRepo;
     public static final AirlineService airlineServ;
 
-    public static final LoginService loginServ;
+    private static final WalletRepository walletRepo;
+    public static final WalletService walletServ;
 
-    public static final CheckInputInformation chInInformation;
+    public static final LoginService loginServ;
 
     private ApplicationContext(){
     }
@@ -47,9 +47,10 @@ public class ApplicationContext {
         airlineRepo = new AirlineRepositoryImpl(HibernateUtil.getEntityMangerFactory());
         airlineServ = new AirlineServiceImpl(airlineRepo);
 
-        loginServ = new LoginService(userServ);
+        walletRepo = new WalletRepositoryImpl(HibernateUtil.getEntityMangerFactory());
+        walletServ = new WalletServiceImpl(walletRepo);
 
-        chInInformation = new CheckInputInformation();
+        loginServ = new LoginService(userServ);
 
     }
 }
