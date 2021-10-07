@@ -26,8 +26,6 @@ public class ApplicationContext {
 
     public static final LoginService loginServ;
 
-    public static final CheckInputInformation chInInformation;
-
     private ApplicationContext(){
     }
 
@@ -48,8 +46,6 @@ public class ApplicationContext {
         airlineServ = new AirlineServiceImpl(airlineRepo);
 
         loginServ = new LoginService(userServ);
-
-        chInInformation = new CheckInputInformation();
 
     }
 }
