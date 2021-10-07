@@ -1,6 +1,7 @@
 package ir.maktab.controller.servlet;
 
 import ir.maktab.model.Customer;
+import ir.maktab.model.Wallet;
 import ir.maktab.util.ApplicationContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Objects;
 
 public class SignUpCustomer extends HttpServlet {
@@ -21,13 +21,11 @@ public class SignUpCustomer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
         RequestDispatcher requestDispatcher;
 
         if (!Objects.equals(request.getParameter("password"), request.getParameter("passRepeat"))) {
             request.setAttribute("message", "Passwords does not match!!!");
             requestDispatcher = request.getRequestDispatcher("/src/main/views/profile/customer/sign_up.jsp");
-            requestDispatcher.forward(request, response);
         } else {
 
             boolean check = ApplicationContext.userServ.existsByUsername(request.getParameter("username"));
@@ -42,7 +40,11 @@ public class SignUpCustomer extends HttpServlet {
                         request.getParameter("lastName"),
                         request.getParameter("nationalCode"));
 
+                Wallet wallet = new Wallet();
+                ApplicationContext.walletServ.save(wallet);
+                customer.setWallet(wallet);
                 ApplicationContext.userServ.save(customer);
+
                 request.setAttribute("message", "Congratulations!" +
                         request.getParameter("firstName") +
                         " " + request.getParameter("lastName") +
@@ -50,7 +52,7 @@ public class SignUpCustomer extends HttpServlet {
 
                 requestDispatcher = request.getRequestDispatcher("/index.jsp");
             }
-            requestDispatcher.forward(request, response);
         }
+        requestDispatcher.forward(request, response);
     }
 }
