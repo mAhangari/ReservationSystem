@@ -16,7 +16,7 @@ public class FlightScheduleRepositoryImpl extends BaseEntityRepositoryImpl<Fligh
 
     @Override
     public Class<FlightSchedule> getEntityClass() {
-        return null;
+        return FlightSchedule.class;
     }
 
     @Override
