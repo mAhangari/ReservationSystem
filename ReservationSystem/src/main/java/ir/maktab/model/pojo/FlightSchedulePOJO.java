@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class FlightSchedulePOJO {
 
+    private Long id;
+
     private String flightNumber;
 
     private String destination;

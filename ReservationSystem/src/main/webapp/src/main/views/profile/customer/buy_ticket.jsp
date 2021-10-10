@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
-        <title>By Ticket</title>
+        <title>Buy Ticket</title>
     </head>
     <body>
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null)
+                out.println(message);
+        %>
         <h2>Fill following field:</h2>
         <form action="flightSchedule">
             <table>
