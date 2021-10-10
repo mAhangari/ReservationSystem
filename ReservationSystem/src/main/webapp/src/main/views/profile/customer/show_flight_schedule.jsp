@@ -9,41 +9,37 @@
 <html>
     <head>
         <title>Flight Schedule</title>
-        <style>
-            th, td, p, input, h3 {
-                font:15px 'Segoe UI';
-            }
-            table, th, td {
-                border: solid 1px #ddd;
-                border-collapse: collapse;
-                padding: 2px 3px;
-                text-align: center;
-            }
-            th {
-                font-weight:bold;
-            }
-        </style>
+
+        <link rel="stylesheet" href="style_flight_schedule">
+
     </head>
     <body>
-            <script>
-                let flightSchedules = <%=session.getAttribute("flightSchedules")%>;
-                window.onload = function() {
-                    tableFromJson(flightSchedules);
-                }
-            </script>
-            <table>
-                <tr>
-                    <td>
-                        <p><button onclick="sortTableByAirline(flightSchedules)">Sort By Airline</button></p>
-                    </td>
-                    <td>
-                        <p><button onclick="sortTableByPrice(flightSchedules)">Sort By Price</button></p>
-                    </td>
-                </tr>
-            </table>
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null)
+                out.println(message);
+        %>
 
+        <script>
+            let flightSchedules = <%=session.getAttribute("flightSchedules")%>;
+            window.onload = function() {
+                tableFromJson(flightSchedules);
+            }
+        </script>
+        <table>
+            <tr>
+                <td>
+                    <p><button onclick="sortTableByAirline(flightSchedules)">Sort By Airline</button></p>
+                </td>
+                <td>
+                    <p><button onclick="sortTableByPrice(flightSchedules)">Sort By Price</button></p>
+                </td>
+            </tr>
+        </table>
+        <form action="submit-ticket" method="get">
             <p id='showData'></p>
-
+            <input type="submit" value="submit" />
+        </form>
     </body>
     <script>
         let ascending = false;
@@ -54,7 +50,7 @@
             for (let i = 0; i < flightSchedules.length; i++) {
                 for (let key in flightSchedules[i]) {
 
-                    if (col.indexOf(key) === -1) {
+                    if (col.indexOf(key) === -1 && key !== "id") {
                         col.push(key);
                     }
                 }
@@ -65,18 +61,23 @@
 
             // Create table header row using the extracted headers above.
             let tr = table.insertRow(-1);                   // table row.
-            console.log(tr);
+            let th = document.createElement("th");
+            th.innerHTML = "option";
+            tr.appendChild(th);
 
             for (let i = 0; i < col.length; i++) {
-                let th = document.createElement("th");      // table header.
+                th = document.createElement("th");      // table header.
                 th.innerHTML = col[i];
                 tr.appendChild(th);
             }
 
             // add json data to the table as rows.
             for (let i = 0; i < flightSchedules.length; i++) {
-
+                let check= "<input type='radio' name='flightOption' value=";
+                check = check.concat(flightSchedules[i]['id'], ">")
                 tr = table.insertRow(-1);
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = check;
 
                 for (let j = 0; j < col.length; j++) {
                     let tabCell = tr.insertCell(-1);
