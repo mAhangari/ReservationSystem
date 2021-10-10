@@ -9,9 +9,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
-        <title>Title</title>
+        <title>Profile</title>
     </head>
     <body>
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null)
+                out.println(message);
+        %>
         <%
             Customer account = (Customer) session.getAttribute("account");
             out.println("Welcome " + account.getFirstName() + " " + account.getLastName());
@@ -19,10 +24,13 @@
         %>
         <ul>
             <li>
-                <a href="bye_ticket">By Ticket</a>
+                <a href="buy_ticket">Buy Ticket</a>
             </li>
             <li>
                 <a href="refund_ticket">Ticket Refund</a>
+            </li>
+            <li>
+                <a href="charge-wallet">Charge Account</a>
             </li>
             <li>
                 <a href="log_out">Log Out</a>

@@ -26,6 +26,9 @@ public class ApplicationContext {
     private static final WalletRepository walletRepo;
     public static final WalletService walletServ;
 
+    private static final TicketRepository ticketRepo;
+    public static final TicketService ticketServ;
+
     public static final LoginService loginServ;
 
     private ApplicationContext(){
@@ -49,6 +52,9 @@ public class ApplicationContext {
 
         walletRepo = new WalletRepositoryImpl(HibernateUtil.getEntityMangerFactory());
         walletServ = new WalletServiceImpl(walletRepo);
+
+        ticketRepo = new TicketRepositoryImpl(HibernateUtil.getEntityMangerFactory());
+        ticketServ = new TicketServiceImpl(ticketRepo);
 
         loginServ = new LoginService(userServ);
 
