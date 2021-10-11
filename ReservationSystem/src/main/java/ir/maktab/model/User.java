@@ -5,7 +5,7 @@ import ir.baseCRUD.base.service.IUser;
 import ir.baseCRUD.domain.enumeration.UserType;
 import lombok.*;
 import javax.persistence.*;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -59,7 +59,7 @@ public class User extends BaseEntity<Long> implements IUser {
     private Set<String> email = new HashSet<>();
 
     @Column(name = BIRTH_DATE)
-    private ZonedDateTime birthDate;
+    private LocalDateTime birthDate;
 
     @Column(name = NATIONAL_CODE, nullable = false, unique = true)
     private String nationalCode;
