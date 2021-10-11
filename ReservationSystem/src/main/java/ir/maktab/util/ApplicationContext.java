@@ -29,6 +29,9 @@ public class ApplicationContext {
     private static final TicketRepository ticketRepo;
     public static final TicketService ticketServ;
 
+    private static final CouponRepository couponRepo;
+    public static final CouponService couponServ;
+
     public static final LoginService loginServ;
 
     private ApplicationContext(){
@@ -55,6 +58,9 @@ public class ApplicationContext {
 
         ticketRepo = new TicketRepositoryImpl(HibernateUtil.getEntityMangerFactory());
         ticketServ = new TicketServiceImpl(ticketRepo);
+
+        couponRepo = new CouponRepositoryImpl(HibernateUtil.getEntityMangerFactory());
+        couponServ = new CouponServiceImpl(couponRepo);
 
         loginServ = new LoginService(userServ);
 
