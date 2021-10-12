@@ -19,20 +19,20 @@ public class Wallet extends BaseEntity<Long> {
 
     @Column(name = TOTAL_AMOUNT)
     @Setter(AccessLevel.NONE)
-    private Long totalAmount = 0L;
+    private Double totalAmount = 0D;
 
     @Column(name = CREDIT_AMOUNT)
-    private Long creditAmount = 0L;
+    private Double creditAmount = 0D;
 
     @Column(name = CASH_AMOUNT)
-    private Long cashAmount = 0L;
+    private Double cashAmount = 0D;
 
-    public void setCashAmount(Long cashAmount){
+    public void setCashAmount(Double cashAmount){
         this.cashAmount = cashAmount;
         this.totalAmount = this.cashAmount + this.creditAmount;
     }
 
-    public void setCreditAmount(Long creditAmount){
+    public void setCreditAmount(Double creditAmount){
         this.creditAmount = creditAmount;
         this.totalAmount = this.creditAmount + this.cashAmount;
     }
