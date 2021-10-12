@@ -36,7 +36,7 @@
                 </td>
             </tr>
         </table>
-        <form action="submit-ticket" method="get">
+        <form action="confirm-ticket" method="get">
             <p id='showData'></p>
             <input type="submit" value="submit" />
         </form>
