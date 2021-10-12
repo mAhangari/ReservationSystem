@@ -4,4 +4,205 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <filter>
+    <filter-name>userFilter</filter-name>
+    <filter-class>ir.maktab.controller.filter.UserFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>userFilter</filter-name>
+    <servlet-name>page</servlet-name>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>page</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.ProfileController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>buyTicket</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/buy_ticket.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>RefundTicket</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/refund_ticket.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>flightSchedule</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.FlightScheduleController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>transportController</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.TransportController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>saveFlightSchedule</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.SaveFlightSchedule</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>signUp</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.SignUpCustomer</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>signUpPage</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/sign_up.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>chargeCustomerWallet</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.ChargeCustomerWallet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>chargeWallet</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/charge_wallet.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>blitController</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.BlitController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>styleFlightSchedule</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/style_flight_schedule.css</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>discountCoupon</servlet-name>
+    <jsp-file>/src/main/views/profile/boss/discount_coupon.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>discountCouponController</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.DiscountController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>signUpEmployeeStyle</servlet-name>
+    <jsp-file>/src/main/views/profile/boss/sign_up_employee_style.css</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>addEmployee</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.AddEmployeeController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>addEmployeeJsp</servlet-name>
+    <jsp-file>/src/main/views/profile/boss/add_employee.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>confirmTicket</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/confirm_ticket.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>javaScriptFunctions</servlet-name>
+    <jsp-file>/src/main/views/profile/customer/javaScriptFunctions.js</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>ticketController</servlet-name>
+    <servlet-class>ir.maktab.controller.servlet.TicketController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ticketController</servlet-name>
+    <url-pattern>/ticketController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>javaScriptFunctions</servlet-name>
+    <url-pattern>/scriptFunctions</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>confirmTicket</servlet-name>
+    <url-pattern>/confirm-ticket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addEmployeeJsp</servlet-name>
+    <url-pattern>/add-employee-jsp</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addEmployee</servlet-name>
+    <url-pattern>/sign-up-employee</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>signUpEmployeeStyle</servlet-name>
+    <url-pattern>/employee-style</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>discountCouponController</servlet-name>
+    <url-pattern>/discountCouponController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>discountCoupon</servlet-name>
+    <url-pattern>/coupon</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>styleFlightSchedule</servlet-name>
+    <url-pattern>/style_flight_schedule</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>blitController</servlet-name>
+    <url-pattern>/submit-ticket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>chargeWallet</servlet-name>
+    <url-pattern>/charge-wallet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>chargeCustomerWallet</servlet-name>
+    <url-pattern>/charge-customer-wallet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>signUpPage</servlet-name>
+    <url-pattern>/sign_up_page</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>signUp</servlet-name>
+    <url-pattern>/sign_up</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>saveFlightSchedule</servlet-name>
+    <url-pattern>/saveFlightSchedule</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>transportController</servlet-name>
+    <url-pattern>/transport</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>flightSchedule</servlet-name>
+    <url-pattern>/flightSchedule</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/log_out</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>RefundTicket</servlet-name>
+    <url-pattern>/refund_ticket</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>buyTicket</servlet-name>
+    <url-pattern>/buy_ticket</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>page</servlet-name>
+    <url-pattern>/page</url-pattern>
+  </servlet-mapping>
+
 </web-app>
